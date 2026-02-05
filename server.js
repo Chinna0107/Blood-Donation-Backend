@@ -43,26 +43,26 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.get('/favicon.png', (req, res) => res.status(204).end());
 
 // Catch-all handler for debugging
-app.use('*', (req, res) => {
-  res.status(404).json({
-    error: 'Route not found',
-    method: req.method,
-    url: req.originalUrl,
-    availableRoutes: [
-      'GET /api/health',
-      'POST /api/auth/login',
-      'POST /api/auth/signup',
-      'GET /api/donors',
-      'POST /api/contact/submit'
-    ]
-  });
-});
+// app.use('*', (req, res) => {
+//   res.status(404).json({
+//     error: 'Route not found',
+//     method: req.method,
+//     url: req.originalUrl,
+//     availableRoutes: [
+//       'GET /api/health',
+//       'POST /api/auth/login',
+//       'POST /api/auth/signup',
+//       'GET /api/donors',
+//       'POST /api/contact/submit'
+//     ]
+//   });
+// });
 
 // For Vercel deployment
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   app.listen(PORT, () => {
+//     console.log(`Server running on port ${PORT}`);
+//   });
+// }
 
 module.exports = app;
