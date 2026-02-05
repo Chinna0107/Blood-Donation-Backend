@@ -19,7 +19,7 @@ app.use(cors({
     'http://localhost:3000',
     'https://hk-blood-donation.vercel.app',
     'https://hk-blood-donation-git-main-chinna0107s-projects.vercel.app',
-    'https://g8l76-1770305143891-ae8954e776db.vercel.app'
+    // 'https://g8l76-1770305143891-ae8954e776db.vercel.app'
   ],
   credentials: true
 }));
@@ -36,6 +36,26 @@ app.use('/api/contact', contactRoutes);
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Blood donation API is running' });
+});
+
+// Handle favicon requests
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+app.get('/favicon.png', (req, res) => res.status(204).end());
+
+// Catch-all handler for debugging
+app.use('*', (req, res) => {
+  res.status(404).json({
+    error: 'Route not found',
+    method: req.method,
+    url: req.originalUrl,
+    availableRoutes: [
+      'GET /api/health',
+      'POST /api/auth/login',
+      'POST /api/auth/signup',
+      'GET /api/donors',
+      'POST /api/contact/submit'
+    ]
+  });
 });
 
 // For Vercel deployment
