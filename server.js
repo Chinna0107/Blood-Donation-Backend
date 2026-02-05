@@ -38,6 +38,10 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Blood donation API is running' });
 });
 
+// Handle favicon requests
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+app.get('/favicon.png', (req, res) => res.status(204).end());
+
 // For Vercel deployment
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
