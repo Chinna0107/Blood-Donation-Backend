@@ -18,7 +18,8 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:3000',
     'https://hk-blood-donation.vercel.app',
-    'https://hk-blood-donation-git-main-chinna0107s-projects.vercel.app'
+    'https://hk-blood-donation-git-main-chinna0107s-projects.vercel.app',
+    'https://g8l76-1770305143891-ae8954e776db.vercel.app'
   ],
   credentials: true
 }));
